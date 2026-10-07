@@ -39,24 +39,24 @@ hr{border:none;border-top:1px solid var(--line);margin:32px 0}
 <body>
 <div class="bar"><div><a class="home" href="index.html#data">← 藝術創齡</a><a id="raw" href="#">下載原始文字檔</a></div></div>
 <article id="doc"><p class="msg">讀取中…</p></article>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.2/marked.min.js"></script>
+<script src="docs.js"></script>
 <script>
 const f=(new URLSearchParams(location.search).get('f')||'README.md').replace(/^專案資料\//,'');
 const doc=document.getElementById('doc');
-if(!/^(README\.md|0[1-3]_[^/]+\/.+\.md)$/.test(f)||f.includes('..')){doc.innerHTML='<p class="msg">找不到這份文件。請回到首頁，從研究資料列表重新選擇。</p>';}
+const md=(window.DOCS||{})[f];
+if(md===undefined){doc.innerHTML='<p class="msg">找不到這份文件（'+f.replace(/</g,'&lt;')+'）。請回到首頁，從研究資料列表重新選擇。</p>';}
 else{
-  const url=f.split('/').map(encodeURIComponent).join('/');
-  document.getElementById('raw').href=url;
-  fetch(url).then(r=>{if(!r.ok)throw 0;return r.text()}).then(md=>{
-    const base=f.slice(0,f.lastIndexOf('/')+1);
-    doc.innerHTML=marked.parse(md);
-    doc.querySelectorAll('table').forEach(t=>{const w=document.createElement('div');w.className='table';t.before(w);w.appendChild(t)});
-    doc.querySelectorAll('a[href]').forEach(a=>{
-      const h=a.getAttribute('href');
-      if(h.endsWith('.md')&&!/^https?:/.test(h)){a.href='viewer.html?f='+encodeURIComponent(base+h)}
-    });
-    const h1=doc.querySelector('h1'); if(h1) document.title=h1.textContent+'｜藝術創齡';
-  }).catch(()=>{doc.innerHTML='<p class="msg">這份文件讀取失敗。請確認網站已上傳完整的「專案資料」資料夾，或回到首頁重新選擇。</p>';});
+  const blob=new Blob([md],{type:'text/markdown;charset=utf-8'});
+  const raw=document.getElementById('raw');
+  raw.href=URL.createObjectURL(blob); raw.download=f.split('/').pop();
+  const base=f.slice(0,f.lastIndexOf('/')+1);
+  doc.innerHTML=marked.parse(md);
+  doc.querySelectorAll('table').forEach(t=>{const w=document.createElement('div');w.className='table';t.before(w);w.appendChild(t)});
+  doc.querySelectorAll('a[href]').forEach(a=>{
+    const h=a.getAttribute('href');
+    if(h.endsWith('.md')&&!/^https?:/.test(h)){a.href='viewer.html?f='+encodeURIComponent(base+h)}
+  });
+  const h1=doc.querySelector('h1'); if(h1) document.title=h1.textContent+'｜藝術創齡';
 }
 </script>
 </body>
