@@ -171,7 +171,7 @@ footer{padding:56px 0 calc(56px + env(safe-area-inset-bottom,0px));border-top:1p
   <div class="wrap">
     <article class="page" aria-label="專題介紹">
       <div class="rings" aria-hidden="true"><span></span><span></span></div>
-      <div class="date"><b>10.09</b><span>2026 年・寒露・畢業專題</span></div>
+      <div class="date"><b id="today-date">10.09</b><span id="today-term">2026 年・寒露・畢業專題</span></div>
       <p class="prompt-label">今天的題目</p>
       <h1>藝術創齡</h1>
       <p class="q">當課堂結束、老師不在身邊，藝術能不能成為退休生活裡，一個自然的選擇？</p>
@@ -465,6 +465,23 @@ for(const [id,list] of Object.entries(files)){
     li.appendChild(a); ul.appendChild(li);
   }
 }
+</script>
+<script>
+(function(){
+  // 24 節氣（21 世紀通用公式：日 = floor(Y×0.2422 + C) − floor(L/4)）
+  const N=['小寒','大寒','立春','雨水','驚蟄','春分','清明','穀雨','立夏','小滿','芒種','夏至','小暑','大暑','立秋','處暑','白露','秋分','寒露','霜降','立冬','小雪','大雪','冬至'];
+  const C=[5.4055,20.12,3.87,18.73,5.63,20.646,4.81,20.1,5.52,21.04,5.678,21.37,7.108,22.83,7.5,23.13,7.646,23.042,8.318,23.438,7.438,22.36,7.18,21.94];
+  const X={'2019-0':-1,'2082-1':1,'2026-3':-1,'2084-5':1,'2008-9':1,'2016-12':1,'2002-14':1,'2089-19':1,'2089-20':1,'2021-23':-1};
+  function termDay(year,i){const Y=year%100,L=i<4?Y-1:Y;return Math.floor(Y*0.2422+C[i])-Math.floor(L/4)+(X[year+'-'+i]||0);}
+  const now=new Date(),y=now.getFullYear(),m=now.getMonth(),d=now.getDate();
+  const today=new Date(y,m,d);
+  let name=N[23],start=new Date(y-1,11,termDay(y-1,23));
+  for(let i=0;i<24;i++){const s=new Date(y,Math.floor(i/2),termDay(y,i)); if(s<=today){name=N[i];start=s;}}
+  const isToday=start.getTime()===today.getTime();
+  const pad=n=>String(n).padStart(2,'0');
+  document.getElementById('today-date').textContent=pad(m+1)+'.'+pad(d);
+  document.getElementById('today-term').textContent=y+' 年・'+(isToday?'今日'+name:name)+'・畢業專題';
+})();
 </script>
 </body>
 </html>
