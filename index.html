@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>藝術創齡｜讓藝術成為退休生活的一個選擇</title>
+<meta name="description" content="徐綺廷、陳彰廷畢業專題：透過跨場域田野調查，理解樂齡創作者的需求，設計生活創作日曆與隨行創作板。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FAFBF8; --sheet:#FFFFFF; --ink:#1E2B3C; --soft:#56606E;
+  --hydrangea:#4F6FAD; --leaf:#5E8A6A; --wash:#E3E9F4; --line:#D5DBE5;
+  --serif:"Noto Serif TC","Songti TC","PMingLiU",serif;
+  --sans:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.8;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:var(--hydrangea);text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:3px solid var(--hydrangea);outline-offset:3px;border-radius:2px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+.narrow{max-width:680px}
+h1,h2,h3{font-family:var(--serif);line-height:1.35;margin:0}
+h2{font-size:clamp(28px,4vw,40px);font-weight:700;margin-bottom:20px}
+h3{font-size:21px;font-weight:700}
+p{margin:0 0 1em}
+section{padding:96px 0;border-top:1px solid var(--line)}
+.lead{font-size:19px;color:var(--soft)}
+
+/* nav */
+nav{position:sticky;top:0;z-index:10;background:rgba(250,251,248,.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
+nav .wrap{display:flex;gap:22px;align-items:center;height:56px;overflow-x:auto;white-space:nowrap}
+nav .brand{font-family:var(--serif);font-weight:900;font-size:19px;color:var(--ink);text-decoration:none;margin-right:auto}
+nav a{color:var(--soft);text-decoration:none;font-size:15px}
+nav a:hover{color:var(--ink)}
+
+/* hero: a torn daily calendar page */
+.hero{padding:72px 0 96px;border-top:none}
+.page{position:relative;max-width:760px;margin:0 auto;background:var(--sheet);padding:56px 56px 48px;box-shadow:0 1px 0 var(--line),0 18px 40px -24px rgba(30,43,60,.35);
+  --tear:radial-gradient(circle at 10px 0,transparent 9px,var(--sheet) 10px);}
+.page::before{content:"";position:absolute;left:0;right:0;top:-10px;height:10px;background:var(--tear);background-size:20px 10px;background-position:0 0}
+.page .rings{position:absolute;top:-26px;left:50%;transform:translateX(-50%);display:flex;gap:120px}
+.page .rings span{width:14px;height:34px;border-radius:7px;background:linear-gradient(#9AA3B2,#5E6878)}
+.date{display:flex;align-items:baseline;gap:18px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:18px;margin-bottom:28px}
+.date b{font-family:var(--serif);font-weight:900;font-size:clamp(72px,14vw,132px);line-height:.9;letter-spacing:-2px;color:var(--hydrangea)}
+.date span{color:var(--soft);font-size:16px}
+.prompt-label{font-size:15px;color:var(--leaf);font-weight:700;margin-bottom:6px}
+.hero h1{font-size:clamp(30px,5vw,46px);font-weight:900;margin-bottom:22px}
+.hero .q{font-family:var(--serif);font-size:clamp(20px,2.6vw,25px);line-height:1.6;font-weight:500;margin-bottom:28px}
+.hint{display:flex;gap:16px;align-items:flex-start;background:var(--wash);padding:16px 20px;font-size:15px;color:var(--ink)}
+.hint em{font-style:normal;font-weight:700;white-space:nowrap}
+.byline{margin-top:28px;font-size:15px;color:var(--soft);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+@media (prefers-reduced-motion:no-preference){
+  .page{animation:settle .9s cubic-bezier(.2,.7,.2,1) both}
+  @keyframes settle{from{opacity:0;transform:translateY(-18px) rotate(-1.2deg)}to{opacity:1;transform:none}}
+}
+
+/* why */
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:40px}
+.facts strong{display:block;font-family:var(--serif);font-size:30px;color:var(--hydrangea);margin-bottom:6px}
+.facts p{font-size:16px;color:var(--soft)}
+
+/* turn */
+.turn{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:40px;border:1px solid var(--line);background:var(--sheet)}
+.turn > div{padding:32px}
+.turn > div + div{border-left:1px solid var(--line);background:#F3F7F3}
+.turn h3{margin-bottom:12px}
+.turn .was h3{color:var(--soft);text-decoration:line-through;text-decoration-color:rgba(86,96,110,.5)}
+.turn ul{margin:0;padding-left:1.2em}
+.turn li{margin-bottom:8px}
+
+/* fieldwork */
+.field{margin-top:36px;border-top:2px solid var(--ink)}
+.field-row{display:grid;grid-template-columns:110px 1fr 1.3fr;gap:20px;padding:16px 0;border-bottom:1px solid var(--line);font-size:16px}
+.field-row time{font-family:var(--serif);font-weight:700;font-size:19px}
+.field-row .who{color:var(--soft)}
+.stats{margin-top:28px;color:var(--soft);font-size:16px}
+
+/* insights */
+.insights{margin-top:36px;display:grid;gap:44px}
+.insight{display:grid;grid-template-columns:1fr 1.25fr;gap:40px;align-items:start}
+.insight blockquote{margin:0;font-family:var(--serif);font-size:21px;line-height:1.65;padding-left:20px;border-left:3px solid var(--hydrangea)}
+.insight cite{display:block;margin-top:10px;font-family:var(--sans);font-style:normal;font-size:14px;color:var(--soft)}
+.insight h3{margin-bottom:8px}
+.insight p{color:var(--soft);font-size:16px}
+
+/* quadrant */
+.quad{position:relative;margin:56px 0 24px;display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--ink);border:2px solid var(--ink)}
+.cell{background:var(--sheet);padding:28px}
+.cell .tag{font-family:var(--serif);font-weight:900;font-size:44px;line-height:1;color:var(--wash);-webkit-text-stroke:1px var(--hydrangea);float:right}
+.cell h3{margin-bottom:6px}
+.cell .pos{font-size:13px;color:var(--soft);margin-bottom:10px}
+.cell .pain{font-weight:700;color:var(--hydrangea);font-size:15px;margin-bottom:8px}
+.cell p{font-size:15px;color:var(--soft);margin-bottom:.6em}
+.cell .say{font-family:var(--serif);color:var(--ink);font-size:16px}
+.axis{display:flex;justify-content:space-between;font-size:14px;color:var(--soft);font-weight:500}
+.axis-y{position:absolute;top:-32px;left:0;right:0;display:flex;justify-content:space-between;font-size:14px;color:var(--soft);font-weight:500}
+.quad-note{font-size:15px;color:var(--soft)}
+
+/* timeline */
+.steps{list-style:none;margin:40px 0 0;padding:0;counter-reset:s}
+.steps li{display:grid;grid-template-columns:150px 1fr;gap:28px;padding:22px 0;border-bottom:1px solid var(--line)}
+.steps .when{font-family:var(--serif);font-weight:700}
+.steps .when small{display:block;font-family:var(--sans);font-weight:400;color:var(--soft);font-size:14px}
+.steps h3{font-size:19px;margin-bottom:4px}
+.steps p{color:var(--soft);font-size:16px;margin:0}
+.steps li:last-child .when{color:var(--hydrangea)}
+
+/* concepts */
+.concept{margin-top:56px}
+.concept + .concept{margin-top:88px}
+.concept > p{max-width:720px}
+.concept header{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:end;margin-bottom:24px}
+.concept .for{font-size:15px;color:var(--leaf);font-weight:700}
+.concept .tagline{font-family:var(--serif);font-size:22px;margin:8px 0 0}
+.figure{background:var(--sheet);border:1px solid var(--line);padding:12px;margin:0 0 20px}
+.figure figcaption{font-size:14px;color:var(--soft);padding-top:10px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.two h3{font-size:18px;margin-bottom:8px}
+.two ul{margin:0;padding-left:1.2em;font-size:16px;color:var(--soft)}
+.two li{margin-bottom:6px}
+
+/* data */
+.files{margin-top:32px;display:grid;grid-template-columns:repeat(2,1fr);gap:40px}
+.files h3{font-size:18px;margin-bottom:10px}
+.files ul{list-style:none;margin:0;padding:0}
+.files li{border-bottom:1px solid var(--line)}
+.files a{display:flex;justify-content:space-between;gap:12px;padding:10px 0;text-decoration:none;color:var(--ink);font-size:16px}
+.files a:hover{color:var(--hydrangea)}
+.files a span{color:var(--soft);font-size:14px;white-space:nowrap}
+.ai{margin-top:40px;padding:24px;background:var(--wash);font-size:16px}
+.ai code{background:var(--sheet);padding:2px 6px;font-size:14px}
+
+footer{padding:56px 0 calc(56px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line);color:var(--soft);font-size:15px}
+
+@media (max-width:820px){
+  section{padding:72px 0}
+  .page{padding:40px 24px 32px}
+  .page .rings{gap:80px}
+  .facts,.turn,.insight,.two,.files{grid-template-columns:1fr}
+  .turn > div + div{border-left:none;border-top:1px solid var(--line)}
+  .field-row{grid-template-columns:1fr;gap:2px}
+  .steps li{grid-template-columns:1fr;gap:6px}
+  .quad{grid-template-columns:1fr}
+  .axis-y{position:static;margin-bottom:8px}
+  .insight{gap:16px}
+}
+</style>
+</head>
+<body>
+
+<nav aria-label="頁面導覽">
+  <div class="wrap">
+    <a class="brand" href="#top">藝術創齡</a>
+    <a href="#why">動機</a>
+    <a href="#field">田野</a>
+    <a href="#insights">發現</a>
+    <a href="#persona">四種創作者</a>
+    <a href="#process">設計歷程</a>
+    <a href="#concepts">設計概念</a>
+    <a href="#data">研究資料</a>
+  </div>
+</nav>
+
+<main id="top">
+
+<section class="hero">
+  <div class="wrap">
+    <article class="page" aria-label="專題介紹">
+      <div class="rings" aria-hidden="true"><span></span><span></span></div>
+      <div class="date"><b>10.09</b><span>2026 年・寒露・畢業專題</span></div>
+      <p class="prompt-label">今天的題目</p>
+      <h1>藝術創齡</h1>
+      <p class="q">當課堂結束、老師不在身邊，藝術能不能成為退休生活裡，一個自然的選擇？</p>
+      <div class="hint"><em>小提示</em><span>我們走訪 5 個繪畫場域，訪談 6 位老師與 15 位以上的學員，發現卡住長輩的往往不是畫具，而是「不知道怎麼開始」與「怕被看見畫不好」。</span></div>
+      <div class="byline"><span>徐綺廷・陳彰廷</span><span>B11210007・B11210035</span></div>
+    </article>
+  </div>
+</section>
+
+<section id="why">
+  <div class="wrap">
+    <div class="narrow">
+      <h2>為什麼是藝術與高齡？</h2>
+      <p class="lead">高齡社會不只是要活得更久，也關乎如何持續參與生活、發展興趣，並與人保持連結。</p>
+    </div>
+    <div class="facts">
+      <div><strong>20%＋</strong><p>台灣已進入超高齡社會，高齡生活將成為愈來愈重要的設計情境。</p></div>
+      <div><strong>健康老化</strong><p>世界衛生組織強調，健康老化不只關乎疾病，而是創造讓人能持續學習、做自己重視的事的環境。</p></div>
+      <div><strong>約 1/4</strong><p>的高齡者處於社會孤立狀態；高品質的社會連結與福祉密切相關。</p></div>
+    </div>
+    <p class="quad-note" style="margin-top:28px">資料來源：<a href="https://cdj.sfaa.gov.tw/Journal/Content?gno=13372">社區發展季刊</a>、<a href="https://www.who.int/news-room/fact-sheets/detail/ageing-and-health">WHO Ageing and health</a></p>
+  </div>
+</section>
+
+<section aria-labelledby="turn-title">
+  <div class="wrap">
+    <div class="narrow">
+      <h2 id="turn-title">一開始的假設，被田野推翻了</h2>
+      <p class="lead">我們原本以為，阻礙長輩畫水彩的是老化帶來的身體限制。走進畫室之後，看到的是另一件事。</p>
+    </div>
+    <div class="turn">
+      <div class="was">
+        <h3>我們原本以為</h3>
+        <ul>
+          <li>手抖、握力下降、辨色能力退化，讓水彩門檻變高</li>
+          <li>所以要設計高齡專用畫具與步驟引導冊</li>
+          <li>以「60 歲以上」作為目標族群</li>
+        </ul>
+      </div>
+      <div>
+        <h3>田野告訴我們</h3>
+        <ul>
+          <li>受訪學員幾乎沒有提到工具不好用</li>
+          <li>真正卡住的是「不知道下一步」、怕畫錯、怕被看</li>
+          <li>同年齡的人需求差異極大，個性、經驗與成果期待比年齡更關鍵</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="field">
+  <div class="wrap">
+    <div class="narrow">
+      <h2>田野調查</h2>
+      <p class="lead">2026 年 8 月到 10 月，我們跟著老師上課、觀察學員作畫，並進行老師與學員訪談。</p>
+    </div>
+    <div class="field" role="list">
+      <div class="field-row" role="listitem"><time>8/4・8/21</time><span>竹北幸福感畫室（瑄澄藝術）</span><span class="who">心岑老師訪談：釐清「不敢下筆／暴衝下筆」的根源</span></div>
+      <div class="field-row" role="listitem"><time>8/13</time><span>禾豆豆銀髮藝術</span><span class="who">何妍儀老師一日課堂觀察，訪談 65 歲與 70 歲學員</span></div>
+      <div class="field-row" role="listitem"><time>8/26</time><span>莫墨畫室</span><span class="who">魏崇安老師訪談：初學者如何跨出第一步</span></div>
+      <div class="field-row" role="listitem"><time>8/26</time><span>瑄澄藝術（幸福感畫室）</span><span class="who">PEMA 老師訪談：成人如何建立信心、課後是否自主創作</span></div>
+      <div class="field-row" role="listitem"><time>8/27</time><span>是日美術長所</span><span class="who">莉莉老師、6 位退休女性學員群訪、年輕學員個別訪談</span></div>
+      <div class="field-row" role="listitem"><time>9/4</time><span>桃園救國團</span><span class="who">酷妹（徐江妹）老師一日課堂觀察，6 位學員個別訪談</span></div>
+      <div class="field-row" role="listitem"><time>10/3</time><span>台北國際照顧博覽會</span><span class="who">新活藝術彭恩寧營運長、禾豆豆老師：概念回饋與場域驗證建議</span></div>
+    </div>
+    <p class="stats">共 5 個研究場域、6 位授課教師、15 位以上受訪學員，另有 2 位高齡藝術專業者提供概念回饋。</p>
+  </div>
+</section>
+
+<section id="insights">
+  <div class="wrap">
+    <div class="narrow">
+      <h2>我們看見的</h2>
+      <p class="lead">跨場域比較後，幾個現象反覆出現。</p>
+    </div>
+    <div class="insights">
+      <div class="insight">
+        <blockquote>「主要是要有勇氣吧。」<cite>禾豆豆課堂學員</cite></blockquote>
+        <div><h3>卡住的是「不知道下一步」，不是工具</h3><p>老師在現場默默承擔了示範、提示、鼓勵與確認。這套隱形的支持系統一旦不在身邊，長輩就很少自己開始。</p></div>
+      </div>
+      <div class="insight">
+        <blockquote>「在家沒人看，畫壞撕掉重來即可。」<cite>桃園救國團學員（班長）</cite></blockquote>
+        <div><h3>作畫時怕被看，畫完後很想被稱讚</h3><p>許多學員曾是主管或老闆，得失心重。他們偏好回家獨自練習，但作品完成後，家人的一句稱讚或一次成果展，能帶來很大的成就感。</p></div>
+      </div>
+      <div class="insight">
+        <blockquote>「到戶外，坐在那裡看到整個畫面，我會不知道要畫這裡、還是畫那裡。」<cite>桃園救國團學員（電控大哥）</cite></blockquote>
+        <div><h3>戶外寫生的門檻是取景與起筆</h3><p>輕便畫具已經不難取得。真正讓人退縮的，是面對動態場景時要自己決定看哪裡、從哪開始，以及怕熱、怕路人眼光。</p></div>
+      </div>
+      <div class="insight">
+        <blockquote>「你就是應該要方便，你才會想要帶。」<cite>酷妹老師</cite></blockquote>
+        <div><h3>有經驗的創作者，會自己改造工具</h3><p>資深創作者會把畫具縮小、磁吸、重新組合。他們需要的不是更多功能，而是能配合自己習慣的配置方式。</p></div>
+      </div>
+      <div class="insight">
+        <blockquote>「如果是戶外走走，那就戶外走走，找一些有趣的照片，大家拍一拍就好了。」<cite>新活藝術 彭恩寧營運長</cite></blockquote>
+        <div><h3>促進外出，不等於一定要寫生</h3><p>拍照、觀察、蒐集素材再回家畫，也是一種藝術參與，而且門檻更低。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="persona">
+  <div class="wrap">
+    <div class="narrow">
+      <h2>四種樂齡創作者</h2>
+      <p class="lead">我們試過以年齡、身份、經驗分類，最後改用「創作自主度」與「評價包袱」兩個面向，描述受訪者真正的差異。</p>
+    </div>
+    <div class="quad" role="group" aria-label="創作者四象限：橫軸為被動接收架構到自主篩選轉化，縱軸為低評價包袱到高評價包袱">
+      <div class="axis-y" aria-hidden="true"><span>← 被動接收架構</span><span>自主篩選轉化 →</span></div>
+      <div class="cell">
+        <span class="tag" aria-hidden="true">A</span>
+        <h3>低壓參與型</h3>
+        <p class="pos">被動接收架構 × 低評價包袱</p>
+        <p class="pain">痛點：缺乏外部啟動</p>
+        <p>跟著課程開心完成作品，但沒有老師、題目或活動安排時，很少自己開始。</p>
+        <p class="say">「我不是想成為畫家，只是想在有人帶領下，享受輕鬆又有成就感的創作時間。」</p>
+      </div>
+      <div class="cell">
+        <span class="tag" aria-hidden="true">B</span>
+        <h3>自在沉浸型</h3>
+        <p class="pos">自主篩選轉化 × 低評價包袱</p>
+        <p class="pain">痛點：工具限制創作自由</p>
+        <p>已有自己的創作方式，把畫畫融入生活與旅行，但市售畫具笨重、零散，不符合自己的習慣。</p>
+        <p class="say">「我想用自己的節奏，畫出讓我感動的生活。」</p>
+      </div>
+      <div class="cell">
+        <span class="tag" aria-hidden="true">C</span>
+        <h3>謹慎防衛型</h3>
+        <p class="pos">被動接收架構 × 高評價包袱</p>
+        <p class="pain">痛點：害怕畫錯與被評價</p>
+        <p>想開始創作，但不知道從何下手，水分一失控就想撕掉重畫，也怕被旁人注視。</p>
+        <p class="say">「我不是不想畫，只是怕畫錯很丟臉。」</p>
+      </div>
+      <div class="cell">
+        <span class="tag" aria-hidden="true">D</span>
+        <h3>進步校準型</h3>
+        <p class="pos">自主篩選轉化 × 高評價包袱</p>
+        <p class="pain">痛點：理想與成果存在落差</p>
+        <p>能自主創作，也越來越看得見自己和理想之間的差距，需要適量的專業回饋確認方向。</p>
+        <p class="say">「我想知道自己哪裡還能更好，也想確定自己真的有在進步。」</p>
+      </div>
+    </div>
+    <p class="quad-note">上排為低評價包袱、下排為高評價包袱；左欄較依賴外部架構，右欄較能自主篩選與轉化。</p>
+  </div>
+</section>
+
+<section id="process">
+  <div class="wrap">
+    <div class="narrow">
+      <h2>設計歷程</h2>
+      <p class="lead">從最初的工具組提案，到目前的兩個概念，每一步都回到田野修正方向。</p>
+    </div>
+    <ol class="steps">
+      <li><div class="when">8 月初<small>初期提案</small></div><div><h3>樂齡水彩工具組與引導冊</h3><p>從高齡生理限制出發，提出專用畫具與步驟化引導冊。</p></div></li>
+      <li><div class="when">8/4–9/4<small>田野調查</small></div><div><h3>走進五個繪畫場域</h3><p>發現工具不是主要痛點，「不知道下一步」與「怕被評價」才是關鍵。</p></div></li>
+      <li><div class="when">9/11<small>研究收斂</small></div><div><h3>建立四象限與 Persona A–D</h3><p>放棄以年齡分類，改用創作自主度與評價包袱描述差異。</p></div></li>
+      <li><div class="when">9/18<small>設計發散</small></div><div><h3>九個產品、服務與數位方向</h3><p>包含自由配置畫具、Open Art Day、Creative Bookmark、日曆生活繪畫冊等。</p></div></li>
+      <li><div class="when">9 月下旬<small>服務藍圖</small></div><div><h3>8 個創作歷程 × 7 個接觸渠道</h3><p>把藝術參與看成「創作前、中、後、再次創作」的循環，篩選值得介入的位置。</p></div></li>
+      <li><div class="when">10/2<small>一審</small></div><div><h3>三個概念</h3><p>隨行創作工具包、日曆繪畫新生活、創作書籤。</p></div></li>
+      <li><div class="when">10/9<small>目前</small></div><div><h3>生活創作日曆與隨行創作板</h3><p>依博覽會專業回饋調整：降低門檻、紙本優先、數位只在需要時出現。</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<section id="concepts">
+  <div class="wrap">
+    <div class="narrow">
+      <h2>目前的設計概念</h2>
+    </div>
+
+    <article class="concept">
+      <header>
+        <div>
+          <p class="for">概念一・對應 A 低壓參與型 × B 自在沉浸型</p>
+          <h3 style="font-size:30px">生活創作日曆</h3>
+          <p class="tagline">「不是一定要創作，而是讓他多一個生活的選擇。」</p>
+        </div>
+      </header>
+      <p>課程提供了固定時段的藝術活動，但創作不一定只能發生在上課時。生活創作日曆借用撕日曆這個本來就存在的日常習慣，每天給一個小小的題目，讓藝術自然融入退休生活。</p>
+      <figure class="figure">
+        <img src="assets/calendar-anatomy.jpg" alt="日曆單頁示意：5 月 14 日初夏，今天的題目是畫下一種讓你想到初夏的植物，畫面中有繡球花水彩，並標示日期節氣、今日題目、生活文化資訊、最低限度提示、有限創作區與 LINE 提示 QR code 六個區塊" loading="lazy" width="945" height="384">
+        <figcaption>一張日曆，完整一天：日期與節氣、今日題目、生活資訊、最低限度提示、有限的創作區，需要時才掃 QR code 進入 LINE。</figcaption>
+      </figure>
+      <figure class="figure">
+        <img src="assets/calendar-themes.jpg" alt="五種主題的日曆頁範例：季節植物、常用杯子、常見的人、文化藝術、出去看看，下方是外出時拍照與速寫的情境" loading="lazy" width="1014" height="711">
+        <figcaption>題目在季節、自己、人、文化與外出之間輪替；外出不等於寫生，拍照回家再畫也算。</figcaption>
+      </figure>
+      <div class="two">
+        <div>
+          <h3>使用方式</h3>
+          <ul>
+            <li>每天撕下一張，得到一個低負擔的題目</li>
+            <li>在日常環境中完成一小幅畫與紀錄</li>
+            <li>畫好的頁面收進另一本收藏冊，看見自己的累積</li>
+          </ul>
+        </div>
+        <div>
+          <h3>LINE 只在需要時出現</h3>
+          <ul>
+            <li>給第一步提示，不要求照抄</li>
+            <li>卡住時拍照發問，得到溫和建議</li>
+            <li>把作品做成分享圖，傳給家人朋友</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <article class="concept">
+      <header>
+        <div>
+          <p class="for">概念二・對應 B 自在沉浸型 × D 進步校準型</p>
+          <h3 style="font-size:30px">隨行創作板</h3>
+          <p class="tagline">不是為了畫畫而出門，而是在出門之後，自然開始創作。</p>
+        </div>
+      </header>
+      <p>在博物館、旅途中或公園散步時，觀察、留下參考物、快速創作、再把作品收進自己的生活採集冊。我們正在比較三種結構：像書一樣左右展開、展開後形成穩定工作面的折翼式，以及打開就是創作桌面的薄盒式。</p>
+      <figure class="figure">
+        <img src="assets/concept2-board.jpg" alt="隨行創作板設計圖板：使用流程為觀察、留下、創作、保存；使用情境包含博物館、旅行途中、公園散步；三種結構方案為左右展開式、折翼式與薄盒式；另有空白卡、取景框卡、主題卡、紀錄卡四種創作卡" loading="lazy" width="1526" height="975">
+        <figcaption>使用流程、情境、三種結構方案與四種創作卡設計。</figcaption>
+      </figure>
+    </article>
+  </div>
+</section>
+
+<section id="data">
+  <div class="wrap">
+    <div class="narrow">
+      <h2>研究資料</h2>
+      <p class="lead">所有訪談逐字稿與簡報都整理成 Markdown 文字檔，可以直接閱讀，也方便 AI 讀取。學員一律以編號呈現。</p>
+    </div>
+    <div class="files">
+      <div>
+        <h3>訪談逐字稿</h3>
+        <ul id="list-interviews"></ul>
+      </div>
+      <div>
+        <h3>簡報與設計歷程</h3>
+        <ul id="list-decks"></ul>
+        <h3 style="margin-top:32px">訪談題綱</h3>
+        <ul id="list-guides"></ul>
+      </div>
+    </div>
+    <div class="ai">
+      <strong>給 AI 或研究者：</strong>完整的資料夾說明在 <a href="viewer.html?f=專案資料/README.md">README</a>。原始文字檔位於本網站的 <code>專案資料/</code> 資料夾；檔案末尾標為「整理者備註」的段落是研究者分析，不是受訪者原話。
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">藝術創齡｜畢業專題　徐綺廷、陳彰廷　2026</div>
+</footer>
+
+<script>
+const D='專案資料/';
+const files={
+  'list-interviews':[
+    ['禾豆豆老師與學員（8/13）','02_訪談逐字稿/A_畫室與教學現場/禾荳荳_0813_老師與學員訪談.md'],
+    ['魏崇安老師（8/26）','02_訪談逐字稿/A_畫室與教學現場/魏崇安老師訪談_高中廣告設計科.md'],
+    ['PEMA 老師（8/26）','02_訪談逐字稿/A_畫室與教學現場/竹北瑄澄藝術_PEMA老師訪談.md'],
+    ['是日美術長所 莉莉老師（8/27）','02_訪談逐字稿/A_畫室與教學現場/是日美術長所_01_老師訪談.md'],
+    ['是日美術長所 退休學員群訪（8/27）','02_訪談逐字稿/A_畫室與教學現場/是日美術長所_02_樂齡學員群體訪談.md'],
+    ['是日美術長所 年輕學員（8/27）','02_訪談逐字稿/A_畫室與教學現場/是日美術長所_03_年輕學員訪談.md'],
+    ['酷妹老師與 6 位學員（9/4）','02_訪談逐字稿/A_畫室與教學現場/酷妹_桃園救國團_老師與學員訪談.md'],
+    ['博覽會：新活藝術（10/3）','02_訪談逐字稿/B_台北國際照顧博覽會/新活藝術_初步發想訪談.md'],
+    ['博覽會：禾豆豆老師（10/3）','02_訪談逐字稿/B_台北國際照顧博覽會/禾荳荳_初步發想訪談.md']
+  ],
+  'list-decks':[
+    ['設計歷程總覽','01_發表/README.md'],
+    ['10/9 概念提案與細節','01_發表/2026-10-09_藝術創齡_3個概念提案與細節.md'],
+    ['初期提案：樂齡水彩工具組','01_發表/附錄_設計歷程/01_初期提案_樂齡水彩工具組與引導冊.md'],
+    ['田野調查與洞察（8–9 月）','01_發表/附錄_設計歷程/02_田野調查與洞察_8月至9月.md'],
+    ['田野研究與設計收斂（9/11）','01_發表/附錄_設計歷程/03_田野研究與設計收斂_0911.md'],
+    ['設計可能性發散（9/18）','01_發表/附錄_設計歷程/04_設計可能性發散_0918.md'],
+    ['服務藍圖與三概念初版','01_發表/附錄_設計歷程/05_服務藍圖與三概念初版.md'],
+    ['一審（10/2）','01_發表/附錄_設計歷程/06_一審_1002.md']
+  ],
+  'list-guides':[
+    ['酷妹老師訪談題綱','03_訪談題綱/徐江妹_酷妹老師訪談題綱.md'],
+    ['酷妹課程學員訪談題綱','03_訪談題綱/酷妹課程學員訪談題綱.md']
+  ]
+};
+for(const [id,list] of Object.entries(files)){
+  const ul=document.getElementById(id);
+  for(const [name,path] of list){
+    const li=document.createElement('li');
+    const a=document.createElement('a');
+    a.href='viewer.html?f='+encodeURIComponent(D+path);
+    a.innerHTML=name+'<span>閱讀</span>';
+    li.appendChild(a); ul.appendChild(li);
+  }
+}
+</script>
+</body>
+</html>
