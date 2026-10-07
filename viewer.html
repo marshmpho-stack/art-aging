@@ -41,9 +41,9 @@ hr{border:none;border-top:1px solid var(--line);margin:32px 0}
 <article id="doc"><p class="msg">讀取中…</p></article>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.2/marked.min.js"></script>
 <script>
-const f=new URLSearchParams(location.search).get('f')||'專案資料/README.md';
+const f=(new URLSearchParams(location.search).get('f')||'README.md').replace(/^專案資料\//,'');
 const doc=document.getElementById('doc');
-if(!f.startsWith('專案資料/')||f.includes('..')){doc.innerHTML='<p class="msg">找不到這份文件。請回到首頁，從研究資料列表重新選擇。</p>';}
+if(!/^(README\.md|0[1-3]_[^/]+\/.+\.md)$/.test(f)||f.includes('..')){doc.innerHTML='<p class="msg">找不到這份文件。請回到首頁，從研究資料列表重新選擇。</p>';}
 else{
   const url=f.split('/').map(encodeURIComponent).join('/');
   document.getElementById('raw').href=url;
