@@ -84,6 +84,7 @@ nav a:hover{color:var(--ink)}
 .site h3{font-size:19px;margin:2px 0 2px}
 .site .who{font-weight:700;font-size:15px;margin-bottom:6px}
 .site p{font-size:15px;color:var(--soft);margin:0}
+.site .scene.photo43{aspect-ratio:4/3}
 .site .scene{grid-column:1 / -1;width:100%;aspect-ratio:16/9;object-fit:cover;margin-top:16px}
 .stats{margin-top:28px;color:var(--soft);font-size:16px}
 
@@ -98,6 +99,7 @@ nav a:hover{color:var(--ink)}
 /* quadrant */
 .quad{position:relative;margin:56px 0 24px;display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--ink);border:2px solid var(--ink)}
 .cell{background:var(--sheet);padding:28px}
+.cell .pimg{width:100%;aspect-ratio:3/2;object-fit:cover;margin-bottom:18px}
 .cell .tag{font-family:var(--serif);font-weight:900;font-size:44px;line-height:1;color:var(--wash);-webkit-text-stroke:1px var(--hydrangea);float:right}
 .cell h3{margin-bottom:6px}
 .cell .pos{font-size:13px;color:var(--soft);margin-bottom:10px}
@@ -243,7 +245,7 @@ footer{padding:56px 0 calc(56px + env(safe-area-inset-bottom,0px));border-top:1p
     </div>
     <div class="sites">
       <article class="site">
-        <img class="portrait" src="t-xincen.jpg" alt="心岑老師" loading="lazy" width="320" height="320">
+        <img class="portrait" src="t-xincen-v2.jpg" alt="心岑老師" loading="lazy" width="320" height="320">
         <div class="site-body">
           <time>8/4・8/21</time>
           <h3>竹北幸福感畫室（瑄澄藝術）</h3>
@@ -253,7 +255,7 @@ footer{padding:56px 0 calc(56px + env(safe-area-inset-bottom,0px));border-top:1p
         <img class="scene" src="s-xuancheng2.jpg" alt="竹北幸福感畫室（瑄澄藝術）現場照片" loading="lazy">
       </article>
       <article class="site">
-        <img class="portrait" src="t-hodoudou.jpg" alt="何妍儀（禾豆豆）老師" loading="lazy" width="320" height="320">
+        <img class="portrait" src="t-hodoudou-v2.jpg" alt="何妍儀（禾豆豆）老師" loading="lazy" width="320" height="320">
         <div class="site-body">
           <time>8/13</time>
           <h3>禾豆豆銀髮藝術</h3>
@@ -273,7 +275,7 @@ footer{padding:56px 0 calc(56px + env(safe-area-inset-bottom,0px));border-top:1p
         <img class="scene" src="s-momo.jpg" alt="莫墨畫室現場照片" loading="lazy">
       </article>
       <article class="site">
-        <img class="portrait" src="t-pema.jpg" alt="PEMA 老師（創辦人）" loading="lazy" width="320" height="320">
+        <img class="portrait" src="t-pema-v2.jpg" alt="PEMA 老師（創辦人）" loading="lazy" width="320" height="320">
         <div class="site-body">
           <time>8/26</time>
           <h3>瑄澄藝術（幸福感畫室）</h3>
@@ -283,7 +285,7 @@ footer{padding:56px 0 calc(56px + env(safe-area-inset-bottom,0px));border-top:1p
         <img class="scene" src="s-xuancheng.jpg" alt="瑄澄藝術（幸福感畫室）現場照片" loading="lazy">
       </article>
       <article class="site">
-        <img class="portrait" src="t-lily.jpg" alt="莉莉老師" loading="lazy" width="320" height="320">
+        <img class="portrait" src="t-lily-v2.jpg" alt="莉莉老師" loading="lazy" width="320" height="320">
         <div class="site-body">
           <time>8/27</time>
           <h3>是日美術長所</h3>
@@ -308,12 +310,22 @@ footer{padding:56px 0 calc(56px + env(safe-area-inset-bottom,0px));border-top:1p
           <time>10/3</time>
           <h3>台北國際照顧博覽會</h3>
           <p class="who">新活藝術 彭恩寧營運長</p>
-          <p>展場專業訪談：創作動機、鼓勵方式、外出參與、數位媒介與場域驗證建議；同場也再次請教禾豆豆老師。</p>
+          <p>展場專業訪談：創作動機、鼓勵方式、外出參與、數位媒介與場域驗證建議。</p>
         </div>
-        <img class="scene" src="s-expo-v3.jpg" alt="台北國際照顧博覽會現場照片" loading="lazy">
+        <img class="scene photo43" src="s-expo-xinhuo.jpg" alt="組員徐綺廷、陳彰廷與新活藝術彭恩寧營運長在照顧服務館合影" loading="lazy">
+      </article>
+      <article class="site">
+        <img class="portrait" src="t-hodoudou-v2.jpg" alt="何妍儀（禾豆豆）老師" loading="lazy" width="320" height="320">
+        <div class="site-body">
+          <time>10/3</time>
+          <h3>台北國際照顧博覽會</h3>
+          <p class="who">禾豆豆銀髮藝術 何妍儀老師</p>
+          <p>參觀「爺爺奶奶作品展」展位，並就節氣日曆、寫生與 LINE 貼圖等概念再次請教老師。</p>
+        </div>
+        <img class="scene photo43" src="s-expo-hodoudou.jpg" alt="組員與禾豆豆何妍儀老師在爺爺奶奶作品展前合影" loading="lazy">
       </article>
     </div>
-    <p class="stats">共 5 個研究場域、6 位授課教師、15 位以上受訪學員，另有 2 位高齡藝術專業者提供概念回饋。</p>
+    <p class="stats">共 5 個研究場域、6 位授課教師、15 位以上受訪學員，並於台北國際照顧博覽會向 2 位高齡藝術專業者請益概念回饋。</p>
   </div>
 </section>
 
@@ -357,6 +369,7 @@ footer{padding:56px 0 calc(56px + env(safe-area-inset-bottom,0px));border-top:1p
     <div class="quad" role="group" aria-label="創作者四象限：橫軸為被動接收架構到自主篩選轉化，縱軸為低評價包袱到高評價包袱">
       <div class="axis-y" aria-hidden="true"><span>← 被動接收架構</span><span>自主篩選轉化 →</span></div>
       <div class="cell">
+        <img class="pimg" src="persona-a.jpg" alt="低壓參與型創作者的情境示意圖" loading="lazy">
         <span class="tag" aria-hidden="true">A</span>
         <h3>低壓參與型</h3>
         <p class="pos">被動接收架構 × 低評價包袱</p>
@@ -365,6 +378,7 @@ footer{padding:56px 0 calc(56px + env(safe-area-inset-bottom,0px));border-top:1p
         <p class="say">「我不是想成為畫家，只是想在有人帶領下，享受輕鬆又有成就感的創作時間。」</p>
       </div>
       <div class="cell">
+        <img class="pimg" src="persona-b.jpg" alt="自在沉浸型創作者的情境示意圖" loading="lazy">
         <span class="tag" aria-hidden="true">B</span>
         <h3>自在沉浸型</h3>
         <p class="pos">自主篩選轉化 × 低評價包袱</p>
@@ -373,6 +387,7 @@ footer{padding:56px 0 calc(56px + env(safe-area-inset-bottom,0px));border-top:1p
         <p class="say">「我想用自己的節奏，畫出讓我感動的生活。」</p>
       </div>
       <div class="cell">
+        <img class="pimg" src="persona-c.jpg" alt="謹慎防衛型創作者的情境示意圖" loading="lazy">
         <span class="tag" aria-hidden="true">C</span>
         <h3>謹慎防衛型</h3>
         <p class="pos">被動接收架構 × 高評價包袱</p>
@@ -381,6 +396,7 @@ footer{padding:56px 0 calc(56px + env(safe-area-inset-bottom,0px));border-top:1p
         <p class="say">「我不是不想畫，只是怕畫錯很丟臉。」</p>
       </div>
       <div class="cell">
+        <img class="pimg" src="persona-d.jpg" alt="進步校準型創作者的情境示意圖" loading="lazy">
         <span class="tag" aria-hidden="true">D</span>
         <h3>進步校準型</h3>
         <p class="pos">自主篩選轉化 × 高評價包袱</p>
@@ -389,7 +405,7 @@ footer{padding:56px 0 calc(56px + env(safe-area-inset-bottom,0px));border-top:1p
         <p class="say">「我想知道自己哪裡還能更好，也想確定自己真的有在進步。」</p>
       </div>
     </div>
-    <p class="quad-note">上排為低評價包袱、下排為高評價包袱；左欄較依賴外部架構，右欄較能自主篩選與轉化。</p>
+    <p class="quad-note">照片為情境示意圖。上排為低評價包袱、下排為高評價包袱；左欄較依賴外部架構，右欄較能自主篩選與轉化。</p>
   </div>
 </section>
 
