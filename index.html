@@ -77,6 +77,14 @@ nav a:hover{color:var(--ink)}
 .field-row{display:grid;grid-template-columns:110px 1fr 1.3fr;gap:20px;padding:16px 0;border-bottom:1px solid var(--line);font-size:16px}
 .field-row time{font-family:var(--serif);font-weight:700;font-size:19px}
 .field-row .who{color:var(--soft)}
+.sites{margin-top:36px;display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.site{background:var(--sheet);border:1px solid var(--line);padding:24px;display:grid;grid-template-columns:96px 1fr;gap:6px 20px;align-content:start}
+.site .portrait{width:96px;height:96px;border-radius:50%;object-fit:cover;border:3px solid var(--wash)}
+.site time{font-family:var(--serif);font-weight:700;font-size:18px;color:var(--hydrangea)}
+.site h3{font-size:19px;margin:2px 0 2px}
+.site .who{font-weight:700;font-size:15px;margin-bottom:6px}
+.site p{font-size:15px;color:var(--soft);margin:0}
+.site .scene{grid-column:1 / -1;width:100%;aspect-ratio:16/9;object-fit:cover;margin-top:16px}
 .stats{margin-top:28px;color:var(--soft);font-size:16px}
 
 /* insights */
@@ -144,6 +152,9 @@ footer{padding:56px 0 calc(56px + env(safe-area-inset-bottom,0px));border-top:1p
   .facts,.turn,.insight,.two,.files{grid-template-columns:1fr}
   .turn > div + div{border-left:none;border-top:1px solid var(--line)}
   .field-row{grid-template-columns:1fr;gap:2px}
+  .sites{grid-template-columns:1fr}
+  .site{grid-template-columns:72px 1fr}
+  .site .portrait{width:72px;height:72px}
   .steps li{grid-template-columns:1fr;gap:6px}
   .quad{grid-template-columns:1fr}
   .axis-y{position:static;margin-bottom:8px}
@@ -230,14 +241,77 @@ footer{padding:56px 0 calc(56px + env(safe-area-inset-bottom,0px));border-top:1p
       <h2>田野調查</h2>
       <p class="lead">2026 年 8 月到 10 月，我們跟著老師上課、觀察學員作畫，並進行老師與學員訪談。</p>
     </div>
-    <div class="field" role="list">
-      <div class="field-row" role="listitem"><time>8/4・8/21</time><span>竹北幸福感畫室（瑄澄藝術）</span><span class="who">心岑老師訪談：釐清「不敢下筆／暴衝下筆」的根源</span></div>
-      <div class="field-row" role="listitem"><time>8/13</time><span>禾豆豆銀髮藝術</span><span class="who">何妍儀老師一日課堂觀察，訪談 65 歲與 70 歲學員</span></div>
-      <div class="field-row" role="listitem"><time>8/26</time><span>莫墨畫室</span><span class="who">魏崇安老師訪談：初學者如何跨出第一步</span></div>
-      <div class="field-row" role="listitem"><time>8/26</time><span>瑄澄藝術（幸福感畫室）</span><span class="who">PEMA 老師訪談：成人如何建立信心、課後是否自主創作</span></div>
-      <div class="field-row" role="listitem"><time>8/27</time><span>是日美術長所</span><span class="who">莉莉老師、6 位退休女性學員群訪、年輕學員個別訪談</span></div>
-      <div class="field-row" role="listitem"><time>9/4</time><span>桃園救國團</span><span class="who">酷妹（徐江妹）老師一日課堂觀察，6 位學員個別訪談</span></div>
-      <div class="field-row" role="listitem"><time>10/3</time><span>台北國際照顧博覽會</span><span class="who">新活藝術彭恩寧營運長、禾豆豆老師：概念回饋與場域驗證建議</span></div>
+    <div class="sites">
+      <article class="site">
+        <img class="portrait" src="t-xincen.jpg" alt="心岑老師" loading="lazy" width="320" height="320">
+        <div class="site-body">
+          <time>8/4・8/21</time>
+          <h3>竹北幸福感畫室（瑄澄藝術）</h3>
+          <p class="who">心岑老師</p>
+          <p>訪談兩次，釐清「不敢下筆／暴衝下筆」的根源：個性、繪畫經驗與成果期待。</p>
+        </div>
+        <img class="scene" src="s-xuancheng2.jpg" alt="竹北幸福感畫室（瑄澄藝術）現場照片" loading="lazy">
+      </article>
+      <article class="site">
+        <img class="portrait" src="t-hodoudou.jpg" alt="何妍儀（禾豆豆）老師" loading="lazy" width="320" height="320">
+        <div class="site-body">
+          <time>8/13</time>
+          <h3>禾豆豆銀髮藝術</h3>
+          <p class="who">何妍儀（禾豆豆）老師</p>
+          <p>跟隨老師一日多場課程觀察，並訪談 65 歲男性與 70 歲女性學員。</p>
+        </div>
+        <img class="scene" src="s-hodoudou.jpg" alt="禾豆豆銀髮藝術現場照片" loading="lazy">
+      </article>
+      <article class="site">
+        <img class="portrait" src="t-wei.jpg" alt="魏崇安老師" loading="lazy" width="320" height="320">
+        <div class="site-body">
+          <time>8/26</time>
+          <h3>莫墨畫室</h3>
+          <p class="who">魏崇安老師</p>
+          <p>訪談初學者如何跨出第一步、卡關原因、媒材的心理差異與寫生門檻。</p>
+        </div>
+        <img class="scene" src="s-momo.jpg" alt="莫墨畫室現場照片" loading="lazy">
+      </article>
+      <article class="site">
+        <img class="portrait" src="t-pema.jpg" alt="PEMA 老師（創辦人）" loading="lazy" width="320" height="320">
+        <div class="site-body">
+          <time>8/26</time>
+          <h3>瑄澄藝術（幸福感畫室）</h3>
+          <p class="who">PEMA 老師（創辦人）</p>
+          <p>訪談成人如何建立信心、課後是否自主創作，以及工具如何進入生活。</p>
+        </div>
+        <img class="scene" src="s-xuancheng.jpg" alt="瑄澄藝術（幸福感畫室）現場照片" loading="lazy">
+      </article>
+      <article class="site">
+        <img class="portrait" src="t-lily.jpg" alt="莉莉老師" loading="lazy" width="320" height="320">
+        <div class="site-body">
+          <time>8/27</time>
+          <h3>是日美術長所</h3>
+          <p class="who">莉莉老師</p>
+          <p>一日課堂觀察，訪談老師、6 位退休女性學員群訪與年輕學員個別訪談。</p>
+        </div>
+        <img class="scene" src="s-shiri.jpg" alt="是日美術長所現場照片" loading="lazy">
+      </article>
+      <article class="site">
+        <img class="portrait" src="t-kumei.jpg" alt="酷妹（徐江妹）老師" loading="lazy" width="320" height="320">
+        <div class="site-body">
+          <time>9/4</time>
+          <h3>桃園救國團</h3>
+          <p class="who">酷妹（徐江妹）老師</p>
+          <p>一日課堂觀察，訪談老師與 6 位不同年資的學員。</p>
+        </div>
+        <img class="scene" src="s-cyc.jpg" alt="桃園救國團現場照片" loading="lazy">
+      </article>
+      <article class="site">
+        <img class="portrait" src="t-pengenning.jpg" alt="新活藝術 彭恩寧營運長" loading="lazy" width="320" height="320">
+        <div class="site-body">
+          <time>10/3</time>
+          <h3>台北國際照顧博覽會</h3>
+          <p class="who">新活藝術 彭恩寧營運長</p>
+          <p>展場專業訪談：創作動機、鼓勵方式、外出參與、數位媒介與場域驗證建議；同場也再次請教禾豆豆老師。</p>
+        </div>
+        <img class="scene" src="s-expo.jpg" alt="台北國際照顧博覽會現場照片" loading="lazy">
+      </article>
     </div>
     <p class="stats">共 5 個研究場域、6 位授課教師、15 位以上受訪學員，另有 2 位高齡藝術專業者提供概念回饋。</p>
   </div>
@@ -353,12 +427,16 @@ footer{padding:56px 0 calc(56px + env(safe-area-inset-bottom,0px));border-top:1p
       </header>
       <p>課程提供了固定時段的藝術活動，但創作不一定只能發生在上課時。生活創作日曆借用撕日曆這個本來就存在的日常習慣，每天給一個小小的題目，讓藝術自然融入退休生活。</p>
       <figure class="figure">
-        <a href="calendar-anatomy.jpg" target="_blank" rel="noopener" title="開啟大圖"><img src="calendar-anatomy.jpg" alt="生活創作日曆產品圖板：從日曆本撕下當天頁面、在日常中完成小畫，再收進生活收藏冊；下方為單頁解析，5 月 14 日初夏的題目是畫下一種讓你想到初夏的植物，標示日期節氣、今日題目、生活文化資訊、最低限度提示、有限創作區與 LINE 提示 QR code" loading="lazy" width="1672" height="941"></a>
-        <figcaption>日曆越來越薄，生活紀錄越來越厚：撕下今天、完成小畫、收進收藏冊。下方是單頁解析——日期與節氣、今日題目、生活資訊、最低限度提示、有限的創作區，需要時才掃 QR code 進入 LINE。（點圖可開啟大圖）</figcaption>
+        <a href="slide-006.jpg" target="_blank" rel="noopener" title="開啟大圖"><img src="slide-006.jpg" alt="簡報第 6 頁：生活創作日曆的概念系統，核心產品為實體可撕式日曆，延伸出每日創作、Outing Day 與收藏小冊，需要支援或想分享時透過 LINE" loading="lazy" width="2000" height="1125"></a>
+        <figcaption>概念系統：每天一個微小的創作契機，偶爾帶著隨身小盒出門，完成的作品收進收藏小冊；需要時才透過 LINE 取得引導或分享。（點圖可開啟大圖）</figcaption>
       </figure>
       <figure class="figure">
-        <a href="calendar-themes.jpg" target="_blank" rel="noopener" title="開啟大圖"><img src="calendar-themes.jpg" alt="內容與支援系統圖板：五種主題的日曆頁範例（季節植物、常用杯子、常見的人、文化藝術、出去看看）、LINE 選用支援的手機畫面、外出用的迷你創作盒，以及從提示到分享的使用流程" loading="lazy" width="1672" height="941"></a>
-        <figcaption>每天不一樣，需要時才提供支援：題目在季節、自己、人、文化與外出之間輪替；LINE 只在需要時出現；外出時帶上迷你創作盒。（點圖可開啟大圖）</figcaption>
+        <a href="slide-007.jpg" target="_blank" rel="noopener" title="開啟大圖"><img src="slide-007.jpg" alt="簡報第 7 頁：使用流程為日曆本、撕下並創作、收藏冊；單頁解析標示日期節氣、今日題目、生活文化資訊、最低限度提示、有限創作區與需要時才進入數位" loading="lazy" width="2000" height="1125"></a>
+        <figcaption>使用流程與單頁解析：一張日曆，完整一天。（點圖可開啟大圖）</figcaption>
+      </figure>
+      <figure class="figure">
+        <a href="slide-008.jpg" target="_blank" rel="noopener" title="開啟大圖"><img src="slide-008.jpg" alt="簡報第 8 頁：五種日曆主題（季節、自己、人、文化、外出）、LINE 選用支援的三種功能，以及外出用的迷你創作盒" loading="lazy" width="2000" height="1125"></a>
+        <figcaption>不同的日曆主題，與只在需要時出現的 LINE 數位輔助。（點圖可開啟大圖）</figcaption>
       </figure>
       <div class="two">
         <div>
